@@ -5,41 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('current-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Reveal & Counter Observer
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        
-        if (entry.target.classList.contains('counter-box')) {
-          const counters = entry.target.querySelectorAll('.counter');
-          counters.forEach(counter => {
-            if (!counter.dataset.animated) {
-              counter.dataset.animated = 'true';
-              animateCounter(counter);
-            }
-          });
-        }
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
-
-  document.querySelectorAll('.reveal, .counter-box, .path-anim').forEach(el => observer.observe(el));
-
-  function animateCounter(el) {
-    const target = parseInt(el.dataset.to, 10);
-    const duration = 2000;
-    let start = null;
-    function step(timestamp) {
-      if (!start) start = timestamp;
-      const progress = Math.min((timestamp - start) / duration, 1);
-      el.innerText = Math.floor(progress * target);
-      if (progress < 1) window.requestAnimationFrame(step);
-      else el.innerText = target;
-    }
-    window.requestAnimationFrame(step);
-  }
-
   // Custom Cursor
   const dot = document.querySelector('.cursor-dot');
   const ring = document.querySelector('.cursor-ring');
@@ -47,25 +12,25 @@ document.addEventListener('DOMContentLoaded', () => {
     let mouseX = -100, mouseY = -100;
     let ringX = -100, ringY = -100;
     let isHovering = false;
-    
+
     window.addEventListener('mousemove', (e) => {
       mouseX = e.clientX; mouseY = e.clientY;
     });
-    
+
     document.querySelectorAll('a, button, input, select, .hover-target').forEach(el => {
       el.addEventListener('mouseenter', () => isHovering = true);
       el.addEventListener('mouseleave', () => isHovering = false);
     });
-    
+
     function render() {
       ringX += (mouseX - ringX) * 0.15;
       ringY += (mouseY - ringY) * 0.15;
       dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-      
+
       const scale = isHovering ? 'scale(1.5)' : 'scale(1)';
       ring.style.transform = `translate(calc(${ringX}px - 50%), calc(${ringY}px - 50%)) ${scale}`;
       dot.style.opacity = isHovering ? '0' : '1';
-      
+
       requestAnimationFrame(render);
     }
     requestAnimationFrame(render);
@@ -85,19 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
       inner.style.transform = `rotateX(${-yPct * 5}deg) rotateY(${xPct * 5}deg)`;
     });
     card.addEventListener('mouseleave', () => {
-      inner.style.transform = `rotateX(0deg) rotateY(0deg)`;
+      inner.style.transform = 'rotateX(0deg) rotateY(0deg)';
     });
-  });
-
-  // Parallax Hero
-  const heroBg = document.querySelector('.hero-bg');
-  const heroContent = document.querySelector('.hero-content');
-  window.addEventListener('scroll', () => {
-    const scroll = window.scrollY;
-    if (scroll < window.innerHeight && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      if (heroBg) heroBg.style.transform = `translateY(${scroll * 0.4}px)`;
-      if (heroContent) heroContent.style.transform = `translateY(${-scroll * 0.15}px)`;
-    }
   });
 
   // Form handling
@@ -109,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const dest = document.getElementById('q-dest').value;
       const type = document.getElementById('q-type').value;
       const weight = document.getElementById('q-weight').value;
-      
+
       const subject = encodeURIComponent("Quote Request");
       const body = encodeURIComponent(
         `Hello St. Lucia Express,\n\nI would like to request a quote for the following shipment:\n\n` +
