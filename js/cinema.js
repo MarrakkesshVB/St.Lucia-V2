@@ -1,4 +1,4 @@
-/* === M4 CINEMA LAYER — Lenis + GSAP motion system (único dueño) === */
+/* === M4 CINEMA LAYER — GSAP motion system (scroll nativo) === */
 (function () {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isTouch = window.matchMedia('(hover: none)').matches;
@@ -10,31 +10,22 @@
     el.classList.remove('reveal', 'reveal-delay-1', 'reveal-delay-2', 'reveal-delay-3')
   );
 
-  /* --- 2) Lenis: smooth scroll mantecoso (solo desktop con mouse) --- */
-  let lenis = null;
-  if (!reduced && !isTouch && typeof window.Lenis !== 'undefined') {
-    lenis = new Lenis({ duration: 1.15, smoothWheel: true });
-
-    document.querySelectorAll('a[href^="#"]').forEach((a) => {
-      a.addEventListener('click', (e) => {
-        const id = a.getAttribute('href');
-        if (id.length > 1) {
-          const target = document.querySelector(id);
-          if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: 0, duration: 1.6 }); }
+  /* --- 2) Anclas con scroll suave nativo --- */
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id.length > 1) {
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-      });
+      }
     });
-  }
+  });
 
   if (hasGsap) {
     gsap.registerPlugin(ScrollTrigger);
-
-    // Sync oficial Lenis ↔ GSAP
-    if (lenis) {
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((t) => lenis.raf(t * 1000));
-      gsap.ticker.lagSmoothing(0);
-    }
 
     if (!reduced) {
       /* --- 3) Reveals con stagger + easing power3 --- */
@@ -64,7 +55,7 @@
         });
       });
 
-      /* --- 5) Parallax del hero (ahora con un solo dueño) --- */
+      /* --- 5) Parallax del hero con scrub (funciona bien con nativo) --- */
       if (!isTouch) {
         gsap.to('.hero-bg', {
           yPercent: 18, ease: 'none',
