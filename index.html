@@ -48,7 +48,7 @@
             <img src="assets/flag.png" alt="Saint Lucia flag" class="h-9 w-14 object-contain" />
             <div class="hidden sm:flex flex-col">
               <span class="text-sm font-bold tracking-[0.3em] uppercase">St. Lucia Express</span>
-              <span class="text-[8px] tracking-[0.5em] text-[#C5A059] uppercase opacity-70">Premium Freight Forwarding</span>
+              <span class="text-[8px] tracking-[0.5em] text-[#C5A059] uppercase opacity-90">Premium Freight Forwarding</span>
             </div>
           </div>
           <div class="hidden md:flex gap-10 font-sans text-[10px] uppercase tracking-[0.2em] font-medium items-center">
@@ -68,16 +68,14 @@
         <div class="absolute inset-0 z-0 pointer-events-none hero-bg">
           <div class="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-[#C5A059]/10 rounded-full blur-[140px]"></div>
           <div class="absolute bottom-[-15%] left-[-5%] w-[600px] h-[600px] bg-blue-900/20 rounded-full blur-[120px]"></div>
-          <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 mix-blend-overlay"></div>
-          <div class="absolute inset-0 bg-[#050507]/80 z-10 mix-blend-multiply"></div>
-          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#050507]/60 to-[#050507] z-10"></div>
-          <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=2070&auto=format&fit=crop" alt="Ocean Texture" fetchpriority="high" decoding="async" class="h-full w-full object-cover opacity-40 grayscale" />
+          <canvas id="heroDots" class="absolute inset-0 h-full w-full"></canvas>
+          <div class="absolute inset-0 bg-gradient-to-b from-[#050507]/60 via-transparent to-[#050507] z-10"></div>
         </div>
 
         <!-- Main Content -->
         <div class="relative z-20 flex flex-col items-center justify-center px-4 text-center w-full max-w-7xl mx-auto mt-16 hero-content">
           <div class="reveal overflow-hidden">
-            <div class="flex items-center gap-4 justify-center opacity-60 mb-6">
+            <div class="flex items-center gap-4 justify-center opacity-80 mb-6">
               <span class="h-[1px] w-12 bg-[#C5A059]"></span>
               <span class="font-sans text-[11px] uppercase tracking-[0.4em]">20+ Years of Excellence</span>
             </div>
@@ -98,14 +96,6 @@
             <a href="#quote" class="border border-white/20 text-white font-bold uppercase tracking-[0.2em] text-[10px] px-8 py-4 rounded-lg hover:border-[#C5A059] hover:text-[#C5A059] transition-colors hover-target">
               Request a Quote ↓
             </a>
-          </div>
-
-          <!-- Scroll Indicator -->
-          <div class="reveal reveal-delay-3 absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-4 items-center">
-            <div class="group relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 border border-white/20 rounded-full hover:border-[#C5A059] transition-all">
-              <div class="absolute inset-1 rounded-full border border-dashed border-[#C5A059]/30 motion-safe:animate-[spin_10s_linear_infinite]"></div>
-              <span class="text-[8px] sm:text-[10px] uppercase tracking-widest font-bold">Scroll</span>
-            </div>
           </div>
         </div>
       </section>
@@ -507,5 +497,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cinema.js"></script>
+    <script src="js/btn-fx.js"></script>
+    <script src="js/hero-dots.js"></script>
 </body>
 </html>
