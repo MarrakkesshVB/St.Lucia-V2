@@ -88,3 +88,8 @@ body {
 
 /* ---------- el fondo del hero no se transforma: NUNCA ---------- */
 .hero-bg{transform:none!important}
+
+/* ---------- carta náutica: pulso de puertos ---------- */
+.pulse-ring{transform-origin:center;transform-box:fill-box;animation:ringpulse 2.6s ease-out infinite}
+@keyframes ringpulse{0%{transform:scale(.5);opacity:.8}100%{transform:scale(1.9);opacity:0}}
+@media(prefers-reduced-motion:reduce){.ship-dot{display:none}.pulse-ring{animation:none}}

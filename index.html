@@ -162,6 +162,11 @@
               Over 20 years of trust. <br class="hidden md:block" />
               <span class="not-italic font-sans font-bold text-white/50 tracking-tight block mt-4 text-2xl md:text-4xl lg:text-5xl">Engineered for seamless global connections.</span>
             </p>
+
+            <div class="reveal reveal-delay-2 mt-10 max-w-3xl mx-auto flex flex-col gap-6 font-sans text-sm md:text-base leading-relaxed opacity-70 font-light tracking-wide">
+              <p>Welcome to St. Lucia Express, your premier choice for shipping to St. Lucia. With over 20 years of industry expertise, we specialize in seamless and reliable freight forwarding services.</p>
+              <p>Our commitment to customer satisfaction, combined with a deep understanding of the St. Lucian market, ensures that your cargo arrives on time and in perfect condition. Trust us to be your shipping partner of choice.</p>
+            </div>
             
             <div class="mt-16 flex flex-wrap justify-center gap-4">
               <div class="reveal reveal-delay-2 px-6 py-2 border border-white/10 rounded-full bg-white/[0.02] backdrop-blur-sm"><span class="font-sans text-[10px] font-bold tracking-widest text-[#C5A059]">IAC</span></div>
@@ -217,6 +222,9 @@
             <h2 class="reveal reveal-delay-1 font-display text-[40px] md:text-[60px] lg:text-[80px] leading-[1.1] md:leading-[0.9] italic font-light text-white drop-shadow-2xl">
               Core Capabilities.
             </h2>
+            <p class="reveal reveal-delay-2 font-sans text-sm md:text-base leading-relaxed opacity-70 font-light tracking-wide max-w-2xl">
+              Our comprehensive services cater to both businesses aiming to streamline their shipping operations and individuals seeking to send their personal belongings to <span class="whitespace-nowrap">St. Lucia</span> with efficiency and ease.
+            </p>
           </div>
           
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 perspective-1000">
@@ -422,34 +430,49 @@
               From the bustling ports of Miami to the serene docks of St. Lucia, our network spans continents, ensuring your cargo arrives precisely when and where it needs to be.
             </p>
             
-            <div class="reveal reveal-delay-3 mt-12 flex gap-8 items-center">
+            <div class="reveal reveal-delay-3 mt-12 flex gap-8 md:gap-12 items-start">
                <div class="flex flex-col">
                  <span class="font-display text-3xl text-white">Miami</span>
-                 <span class="font-sans text-[10px] uppercase tracking-[0.2em] text-[#C5A059] font-bold mt-2">11450 NW 34th St</span>
+                 <span class="font-sans text-[10px] uppercase tracking-[0.2em] text-[#C5A059] font-bold mt-2">Office</span>
+                 <span class="font-sans text-xs text-white/60 font-light mt-3 leading-relaxed">11450 NW 34th St. Doral<br />Florida, 33178</span>
                </div>
-               <div class="w-[1px] h-12 bg-white/20"></div>
+               <div class="w-[1px] h-24 bg-white/20"></div>
                <div class="flex flex-col">
                  <span class="font-display text-3xl text-white">St. Lucia</span>
-                 <span class="font-sans text-[10px] uppercase tracking-[0.2em] text-[#C5A059] font-bold mt-2">Castries / Vieux Fort</span>
+                 <span class="font-sans text-[10px] uppercase tracking-[0.2em] text-[#C5A059] font-bold mt-2">Shipping Locations</span>
+                 <span class="font-sans text-xs text-white/60 font-light mt-3 leading-relaxed">Castries<br />Vieux Fort</span>
                </div>
             </div>
           </div>
           
           <div class="w-full md:w-1/2 relative aspect-square flex items-center justify-center reveal">
-            <svg viewBox="0 0 400 400" class="w-full h-full max-w-[500px]">
-               <circle cx="100" cy="100" r="4" fill="white" class="opacity-50" />
-               <circle cx="300" cy="250" r="6" fill="white" />
-               <circle cx="250" cy="150" r="3" fill="white" class="opacity-30" />
-               <circle cx="150" cy="300" r="3" fill="white" class="opacity-30" />
-               
-               <path d="M 100 100 Q 200 50 300 250" fill="transparent" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-               <path class="path-anim" d="M 100 100 Q 200 50 300 250" fill="transparent" stroke="#C5A059" stroke-width="2"/>
-               
-               <path d="M 100 100 Q 150 200 150 300" fill="transparent" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-               <path class="path-anim" d="M 100 100 Q 150 200 150 300" fill="transparent" stroke="#C5A059" stroke-width="1"/>
-               
-               <path d="M 150 300 Q 200 250 300 250" fill="transparent" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-               <path class="path-anim" d="M 150 300 Q 200 250 300 250" fill="transparent" stroke="#C5A059" stroke-width="1"/>
+            <svg viewBox="0 0 500 500" class="w-full h-full max-w-[540px]">
+              <!-- retícula de carta náutica -->
+              <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+                <path d="M0 125 H500"/><path d="M0 250 H500"/><path d="M0 375 H500"/>
+                <path d="M125 0 V500"/><path d="M250 0 V500"/><path d="M375 0 V500"/>
+              </g>
+              <!-- masas de tierra sugeridas -->
+              <path d="M60 90 q40 -18 78 -6 q30 10 22 34 q-8 22 -46 20 q-46 -2 -62 -20 q-10 -16 8 -28z" fill="rgba(224,216,208,0.06)"/>
+              <path d="M330 352 q26 -10 44 6 q14 14 -2 26 q-20 14 -44 4 q-16 -10 2 -36z" fill="rgba(224,216,208,0.06)"/>
+              <!-- ruta: base punteada + trazo dorado que se dibuja -->
+              <path d="M120 130 Q 260 150 350 340" fill="transparent" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-dasharray="4 6"/>
+              <path class="path-anim" d="M120 130 Q 260 150 350 340" fill="transparent" stroke="#C5A059" stroke-width="2"/>
+              <!-- extremos pulsantes -->
+              <circle cx="120" cy="130" r="5" fill="#E0D8D0"/>
+              <circle cx="120" cy="130" r="10" fill="none" stroke="rgba(197,160,89,.5)" class="pulse-ring"/>
+              <circle cx="350" cy="340" r="5" fill="#C5A059"/>
+              <circle cx="350" cy="340" r="10" fill="none" stroke="rgba(197,160,89,.5)" class="pulse-ring"/>
+              <!-- barco en tránsito (loop) -->
+              <circle r="4" fill="#FFD98F" class="ship-dot">
+                <animateMotion dur="7s" repeatCount="indefinite" path="M120 130 Q 260 150 350 340"/>
+              </circle>
+              <!-- códigos de puerto -->
+              <text x="134" y="122" fill="rgba(224,216,208,.75)" font-size="12" letter-spacing="3" font-family="Manrope, sans-serif">MIA</text>
+              <text x="364" y="352" fill="rgba(197,160,89,.9)" font-size="12" letter-spacing="3" font-family="Manrope, sans-serif">SLU</text>
+              <!-- coordenadas reales -->
+              <text x="16" y="486" fill="rgba(224,216,208,.35)" font-size="10" letter-spacing="2" font-family="Manrope, sans-serif">25.76° N · 80.19° W</text>
+              <text x="340" y="486" fill="rgba(224,216,208,.35)" font-size="10" letter-spacing="2" font-family="Manrope, sans-serif">13.99° N · 60.99° W</text>
             </svg>
           </div>
         </div>
