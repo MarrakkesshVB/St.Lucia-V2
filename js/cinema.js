@@ -10,7 +10,7 @@
     el.classList.remove('reveal', 'reveal-delay-1', 'reveal-delay-2', 'reveal-delay-3')
   );
 
-  /* --- 2) Anclas con scroll suave nativo --- */
+  /* --- 2) Anclas inteligentes: solo scrollea si el destino no está visible --- */
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (e) => {
       const id = a.getAttribute('href');
@@ -18,7 +18,17 @@
         const target = document.querySelector(id);
         if (target) {
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const r = target.getBoundingClientRect();
+          const inView = r.top >= 0 && r.top < window.innerHeight * 0.8;
+          if (inView) {
+            /* ya en pantalla: foco al form, sin salto */
+            const inp = target.querySelector('input, select');
+            if (inp) inp.focus({ preventScroll: true });
+          } else {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+          /* re-sincroniza el canvas tras el salto */
+          setTimeout(()=>window.dispatchEvent(new Event('resize')),450);
         }
       }
     });
@@ -57,13 +67,9 @@
 
       /* --- 5) Parallax del hero con scrub (funciona bien con nativo) --- */
       if (!isTouch) {
-        gsap.to('.hero-bg', {
-          yPercent: 18, ease: 'none',
-          scrollTrigger: { trigger: '.hero-bg', start: 'top top', end: 'bottom top', scrub: true }
-        });
         gsap.to('.hero-content', {
           yPercent: -10, opacity: 0.35, ease: 'none',
-          scrollTrigger: { trigger: '.hero-bg', start: 'top top', end: '80% top', scrub: true }
+          scrollTrigger: { trigger: '#hero', start: 'top top', end: '80% top', scrub: true }
         });
       }
 

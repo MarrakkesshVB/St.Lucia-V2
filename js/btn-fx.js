@@ -9,7 +9,7 @@
 
   const ctas=[...document.querySelectorAll('a,button')].filter(el=>
     !el.closest('footer') &&
-    /call now|request.*quote|send quote|submit request/i.test(el.textContent||''));
+    /call now|request.*quote|send quote|submit request|explore services/i.test(el.textContent||''));
 
   ctas.forEach((btn)=>{
     btn.setAttribute('data-fx-btn','');
