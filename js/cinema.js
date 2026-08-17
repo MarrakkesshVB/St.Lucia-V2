@@ -1,5 +1,15 @@
 /* === M4 CINEMA LAYER — GSAP motion system (scroll nativo) === */
 (function () {
+  /* reload / F5 => siempre al tope (gana cualquier timing del navegador) */
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  let tries = 0;
+  (function top(){
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    if (++tries < 20) setTimeout(top, 50);
+  })();
+  window.addEventListener('load', () => window.scrollTo({ top: 0, behavior: 'instant' }));
+  window.addEventListener('pageshow', e => { if (e.persisted) window.scrollTo({ top: 0, behavior: 'instant' }); });
+
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isTouch = window.matchMedia('(hover: none)').matches;
   const hasGsap = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
