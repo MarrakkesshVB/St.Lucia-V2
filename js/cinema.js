@@ -24,11 +24,12 @@
             /* ya en pantalla: foco al form, sin salto */
             const inp = target.querySelector('input, select');
             if (inp) inp.focus({ preventScroll: true });
+          } else if (target.closest('#hero')) {
+            /* el form vive en el hero: tope absoluto de la página */
+            window.scrollTo({ top: 0, behavior: 'smooth' });
           } else {
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
-          /* re-sincroniza el canvas tras el salto */
-          setTimeout(()=>window.dispatchEvent(new Event('resize')),450);
         }
       }
     });
