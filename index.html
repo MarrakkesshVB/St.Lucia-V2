@@ -116,29 +116,37 @@
 
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div class="flex flex-col gap-2">
-                      <label class="font-sans text-[10px] uppercase tracking-[0.2em] text-white/50 pl-2">Origin</label>
-                      <input type="text" id="q-origin" name="origin" required placeholder="e.g. Miami, FL" class="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C5A059] transition-colors placeholder:text-white/20" />
+                      <label class="font-sans text-[10px] uppercase tracking-[0.2em] text-white/50 pl-2">First Name</label>
+                      <input type="text" name="first_name" required class="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C5A059] transition-colors" />
                     </div>
                     <div class="flex flex-col gap-2">
-                      <label class="font-sans text-[10px] uppercase tracking-[0.2em] text-white/50 pl-2">Destination</label>
-                      <input type="text" id="q-dest" name="destination" required placeholder="e.g. Castries, St. Lucia" class="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C5A059] transition-colors placeholder:text-white/20" />
+                      <label class="font-sans text-[10px] uppercase tracking-[0.2em] text-white/50 pl-2">Last Name</label>
+                      <input type="text" name="last_name" required class="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C5A059] transition-colors" />
                     </div>
                   </div>
 
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div class="flex flex-col gap-2">
-                      <label class="font-sans text-[10px] uppercase tracking-[0.2em] text-white/50 pl-2">Service Type</label>
-                      <select id="q-type" name="service_type" class="bg-[#0f0f13] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C5A059] transition-colors appearance-none cursor-pointer">
-                        <option>Ocean Freight</option>
-                        <option>Air Freight</option>
-                        <option>Small Packages</option>
-                        <option>Warehouse Processing</option>
-                      </select>
+                      <label class="font-sans text-[10px] uppercase tracking-[0.2em] text-white/50 pl-2">Phone / WhatsApp</label>
+                      <input type="tel" name="phone" required class="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C5A059] transition-colors" />
                     </div>
                     <div class="flex flex-col gap-2">
-                      <label class="font-sans text-[10px] uppercase tracking-[0.2em] text-white/50 pl-2">Weight / Volume</label>
-                      <input type="text" id="q-weight" name="weight_volume" required placeholder="e.g. 200 lbs or 2 Pallets" class="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C5A059] transition-colors placeholder:text-white/20" />
+                      <label class="font-sans text-[10px] uppercase tracking-[0.2em] text-white/50 pl-2">Email</label>
+                      <input type="email" name="email" required class="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C5A059] transition-colors" />
                     </div>
+                  </div>
+
+                  <div class="flex flex-col gap-2">
+                    <label class="font-sans text-[10px] uppercase tracking-[0.2em] text-white/50 pl-2">Destination</label>
+                    <select name="destination" class="bg-[#0f0f13] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C5A059] transition-colors appearance-none cursor-pointer">
+                      <option>Castries</option>
+                      <option>Vieux Fort</option>
+                    </select>
+                  </div>
+
+                  <div class="flex flex-col gap-2">
+                    <label class="font-sans text-[10px] uppercase tracking-[0.2em] text-white/50 pl-2">More Information</label>
+                    <textarea name="more_information" rows="4" required placeholder="Tell us what you'd like to ship: boxes, pallets, furniture, vehicles..." class="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C5A059] transition-colors placeholder:text-white/20 resize-none"></textarea>
                   </div>
 
                   <button type="submit" id="submit-btn" class="mt-2 w-full bg-[#C5A059] text-black font-bold uppercase tracking-[0.2em] text-[10px] py-4 rounded-xl hover:bg-white transition-colors shadow-lg shadow-[#C5A059]/20 hover-target disabled:opacity-60 disabled:cursor-not-allowed">
