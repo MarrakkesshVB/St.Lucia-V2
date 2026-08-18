@@ -57,23 +57,45 @@ document.addEventListener('DOMContentLoaded', () => {
   // Form handling
   const form = document.getElementById('quote-form');
   if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const origin = document.getElementById('q-origin').value;
-      const dest = document.getElementById('q-dest').value;
-      const type = document.getElementById('q-type').value;
-      const weight = document.getElementById('q-weight').value;
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
 
-      const subject = encodeURIComponent("Quote Request");
-      const body = encodeURIComponent(
-        `Hello St. Lucia Express,\n\nI would like to request a quote for the following shipment:\n\n` +
-        `- Origin: ${origin}\n` +
-        `- Destination: ${dest}\n` +
-        `- Type: ${type}\n` +
-        `- Weight/Volume: ${weight}\n\n` +
-        `Please contact me with an estimate.\n\nThank you.`
-      );
-      window.location.href = `mailto:ingrid@stluciaexpress.com?subject=${subject}&body=${body}`;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      if (formData.get('bot-field')) return;   // honeypot anti-spam
+      formData.delete('bot-field');            // mail limpio
+
+      submitBtn.disabled = true;
+      btnText.textContent = 'Sending...';
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+        const result = await response.json();
+
+        if (result.success) {
+          btnText.textContent = 'Quote sent ✔';
+          submitBtn.style.background = '#22c55e';
+          submitBtn.style.color = '#fff';
+          form.reset();
+          setTimeout(() => {
+            btnText.textContent = 'Submit Request';
+            submitBtn.disabled = false;
+            submitBtn.style.background = '';
+            submitBtn.style.color = '';
+          }, 3000);
+        } else {
+          throw new Error(result.message || 'Submission failed');
+        }
+      } catch (err) {
+        btnText.textContent = 'Error — try again';
+        submitBtn.disabled = false;
+        console.error('Form submission error:', err);
+      }
     });
   }
 });
